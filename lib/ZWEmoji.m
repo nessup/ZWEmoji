@@ -50,20 +50,29 @@ static NSDictionary *_codes = nil;
 
 #pragma mark - Replacement
 
++ (NSString *)removeAllEmojiInString:(NSString *)string {
+    return [self unemojify:string ignore:nil replaceWithCampfireCodes:NO];
+}
+
 // Replace emoji unicode (\U0001F44D) with Campfire codes (:thumbsup:)
 + (NSString *)unemojify:(NSString *)string
 {
 	return [self unemojify:string ignore:nil];
 }
 
-+ (NSString *)unemojify:(NSString *)string ignore:(NSSet *)ignore
++ (NSString *)unemojify:(NSString *)string ignore:(NSSet *)ignore {
+    return [self unemojify:string ignore:ignore replaceWithCampfireCodes:YES];
+}
+
++ (NSString *)unemojify:(NSString *)string ignore:(NSSet *)ignore replaceWithCampfireCodes:(BOOL)replaceWithCampfireCodes
 {
     if (![string isEqual:[NSNull null]] && string.length > 0) {
         NSMutableString *emojiString = [string mutableCopy];
 
         for (NSString *emoji in _emojis) {
             if (![ignore containsObject:emoji]) {
-                [emojiString replaceOccurrencesOfString:emoji withString:_emojis[emoji] options:NSCaseInsensitiveSearch range:NSMakeRange(0, [emojiString length])];
+                NSString *replacement = replaceWithCampfireCodes ? _emojis[emoji] : @"";
+                [emojiString replaceOccurrencesOfString:emoji withString:replacement options:NSCaseInsensitiveSearch range:NSMakeRange(0, [emojiString length])];
             }
         }
 
