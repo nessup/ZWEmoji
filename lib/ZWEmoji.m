@@ -158,7 +158,7 @@ static NSDictionary *_codes = nil;
 						 @":abcd:": @"\U0001F521",
 						 @":accept:": @"\U0001F251",
 						 @":aerial_tramway:": @"\U0001F6A1",
-						 @":airplane:": @"\u2708",
+						 @":airplane:": @"\u2708\ufe0f",
 						 @":alarm_clock:": @"\u23F0",
 						 @":alien:": @"\U0001F47D",
 						 @":ambulance:": @"\U0001F691",
