@@ -202,7 +202,7 @@ static NSDictionary *_codes = nil;
 						 @":baby_symbol:": @"\U0001F6BC",
 						 @":baggage_claim:": @"\U0001F6C4",
 						 @":balloon:": @"\U0001F388",
-						 @":ballot_box_with_check:": @"\u2611",
+						 @":ballot_box_with_check:": @"\u2611\ufe0f",
 						 @":bamboo:": @"\U0001F38D",
 						 @":banana:": @"\U0001F34C",
 						 @":bangbang:": @"\u203C",
